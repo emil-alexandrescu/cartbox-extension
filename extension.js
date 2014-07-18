@@ -4,10 +4,13 @@
  *************************************************************************************/
 
 appAPI.ready(function($) {
-    appAPI.resources.includeRemoteJS('http://cartbox.parseapp.com/src/common/addproduct/convertimage.js');
-    appAPI.resources.includeRemoteJS('http://cartbox.parseapp.com/src/common/addproduct/detectstore.js');
-    appAPI.resources.includeRemoteJS('http://cartbox.parseapp.com/src/common/addproduct/productsave.js');
-    appAPI.resources.includeRemoteJS('http://cartbox.parseapp.com/src/common/addproduct/detectstore_addfromcart.js');
+
+    var cartbox_url = 'http://cartbox.parseapp.com';
+
+    appAPI.resources.includeRemoteJS(cartbox_url+'/src/common/addproduct/convertimage.js');
+    appAPI.resources.includeRemoteJS(cartbox_url+'/src/common/addproduct/detectstore.js');
+    appAPI.resources.includeRemoteJS(cartbox_url+'/src/common/addproduct/productsave.js');
+    appAPI.resources.includeRemoteJS(cartbox_url+'/src/common/addproduct/detectstore_addfromcart.js');
     appAPI.resources.includeJS('toastr.min.js');
     appAPI.resources.includeCSS('toastr.min.css');
     appAPI.resources.includeRemoteJS('http://www.parsecdn.com/js/parse-1.2.18.min.js');
@@ -105,7 +108,7 @@ appAPI.ready(function($) {
                 success:function(count){
                     if (count === 0){
                         alert("Please log in to add to cartbox");
-                        appAPI.tabs.create('http://cartbox.parseapp.com/#/signin');
+                        appAPI.tabs.create(cartbox_url+'/#/signin');
                         return;
                     }else{
                         for (var i=0; i<cartbox_array.length; i++){
@@ -125,7 +128,7 @@ appAPI.ready(function($) {
             });
         }else{
             alert("Please log in to add to cartbox");
-            appAPI.tabs.create('http://cartbox.parseapp.com/#/signin');
+            appAPI.tabs.create(cartbox_url+'/#/signin');
             return;
         }
     });
@@ -140,7 +143,7 @@ appAPI.ready(function($) {
                 success:function(count){
                     if (count === 0){
                         alert("Please log in to add to cartbox");
-                        appAPI.tabs.create('http://cartbox.parseapp.com/#/signin');
+                        appAPI.tabs.create(cartbox_url+'/#/signin');
                         return;
                     }else{
                         var url = document.location.href;
@@ -150,7 +153,7 @@ appAPI.ready(function($) {
             });
         }else{
             alert("Please log in to add to cartbox");
-            appAPI.tabs.create('http://cartbox.parseapp.com/#/signin');
+            appAPI.tabs.create(cartbox_url+'/#/signin');
             return;
         }
     });
